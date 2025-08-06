@@ -1,11 +1,14 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import PosterGenerator from "@/components/PosterGenerator";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background p-4">
+      <div className="container mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-4">Deriv Poster Generator</h1>
+          <p className="text-xl text-muted-foreground">Create professional Deriv marketing posters</p>
+        </div>
+        <PosterGenerator />
       </div>
     </div>
   );
