@@ -193,24 +193,17 @@ const PosterGenerator = () => {
           {/* Main Content */}
           <div className="absolute top-20 left-6 right-6 z-20">
             <div className="space-y-2">
-              {headline.split('\n').map((line, index) => {
-                const words = line.split(' ');
-                return (
-                  <div key={index} className="text-3xl font-bold leading-tight font-inter">
-                    {words.map((word, wordIndex) => {
-                      const isHighlight = highlightText && word.toLowerCase().includes(highlightText.toLowerCase());
-                      return (
-                        <span
-                          key={wordIndex}
-                          style={{ color: isHighlight ? highlightColor : headlineColor }}
-                        >
-                          {word}{wordIndex < words.length - 1 ? ' ' : ''}
-                        </span>
-                      );
-                    })}
-                  </div>
-                );
-              })}
+              {/* Headline */}
+              <div className="text-3xl font-bold leading-tight font-inter whitespace-pre-line" style={{ color: headlineColor }}>
+                {headline}
+              </div>
+              
+              {/* Highlight Text */}
+              {highlightText && (
+                <div className="text-3xl font-bold leading-tight font-inter" style={{ color: highlightColor }}>
+                  {highlightText}
+                </div>
+              )}
             </div>
           </div>
 
