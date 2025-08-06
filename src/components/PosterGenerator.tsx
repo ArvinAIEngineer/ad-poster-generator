@@ -172,11 +172,11 @@ const PosterGenerator = () => {
             />
           </div>
 
-          {/* White Gradient Overlay */}
+          {/* White Fade Overlay */}
           <div 
             className="absolute inset-0 z-10"
             style={{
-              background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.3) 100%)"
+              background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)"
             }}
           />
 
