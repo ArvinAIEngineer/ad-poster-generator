@@ -19,6 +19,9 @@ const PosterGenerator = () => {
   const [headlineColor, setHeadlineColor] = useState("#000000");
   const [highlightColor, setHighlightColor] = useState("#ff444f");
   const [lowerTextColor, setLowerTextColor] = useState("#666666");
+  const [headlineFontSize, setHeadlineFontSize] = useState(36);
+  const [highlightFontSize, setHighlightFontSize] = useState(36);
+  const [lowerTextFontSize, setLowerTextFontSize] = useState(14);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -85,6 +88,16 @@ const PosterGenerator = () => {
                   onChange={(e) => setHeadlineColor(e.target.value)}
                   className="w-12 h-8 p-1 border rounded"
                 />
+                <Label htmlFor="headlineFontSize" className="text-sm">Size:</Label>
+                <Input
+                  id="headlineFontSize"
+                  type="number"
+                  value={headlineFontSize}
+                  onChange={(e) => setHeadlineFontSize(Number(e.target.value))}
+                  className="w-16 h-8"
+                  min="12"
+                  max="72"
+                />
               </div>
             </div>
 
@@ -106,6 +119,16 @@ const PosterGenerator = () => {
                   onChange={(e) => setHighlightColor(e.target.value)}
                   className="w-12 h-8 p-1 border rounded"
                 />
+                <Label htmlFor="highlightFontSize" className="text-sm">Size:</Label>
+                <Input
+                  id="highlightFontSize"
+                  type="number"
+                  value={highlightFontSize}
+                  onChange={(e) => setHighlightFontSize(Number(e.target.value))}
+                  className="w-16 h-8"
+                  min="12"
+                  max="72"
+                />
               </div>
             </div>
 
@@ -126,6 +149,16 @@ const PosterGenerator = () => {
                   value={lowerTextColor}
                   onChange={(e) => setLowerTextColor(e.target.value)}
                   className="w-12 h-8 p-1 border rounded"
+                />
+                <Label htmlFor="lowerTextFontSize" className="text-sm">Size:</Label>
+                <Input
+                  id="lowerTextFontSize"
+                  type="number"
+                  value={lowerTextFontSize}
+                  onChange={(e) => setLowerTextFontSize(Number(e.target.value))}
+                  className="w-16 h-8"
+                  min="8"
+                  max="24"
                 />
               </div>
             </div>
@@ -190,10 +223,10 @@ const PosterGenerator = () => {
             <div className="space-y-1">
               {/* Headline and Highlight on same line */}
               <div className="flex flex-wrap items-baseline gap-2">
-                <span className="text-4xl font-bold font-inter whitespace-pre-line" style={{ color: highlightColor }}>
+                <span className="font-bold font-inter whitespace-pre-line" style={{ color: highlightColor, fontSize: `${highlightFontSize}px` }}>
                   {highlightText}
                 </span>
-                <span className="text-4xl font-bold font-inter whitespace-pre-line" style={{ color: headlineColor }}>
+                <span className="font-bold font-inter whitespace-pre-line" style={{ color: headlineColor, fontSize: `${headlineFontSize}px` }}>
                   {headline}
                 </span>
               </div>
@@ -212,8 +245,8 @@ const PosterGenerator = () => {
           {/* Lower Text */}
           <div className="absolute bottom-4 left-6 right-6 z-20">
             <p
-              className="text-sm font-inter"
-              style={{ color: lowerTextColor }}
+              className="font-inter"
+              style={{ color: lowerTextColor, fontSize: `${lowerTextFontSize}px` }}
             >
               {lowerText}
             </p>
