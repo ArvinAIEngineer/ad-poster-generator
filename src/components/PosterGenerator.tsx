@@ -4,14 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { Download, Upload, Palette } from "lucide-react";
+import { Download, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import html2canvas from "html2canvas";
 
 const PosterGenerator = () => {
   const { toast } = useToast();
   const posterRef = useRef<HTMLDivElement>(null);
-  
+
   const [headline, setHeadline] = useState("Top 5 mistakes\nto avoid when trading");
   const [highlightText, setHighlightText] = useState("ETFs with CFDs");
   const [backgroundImage, setBackgroundImage] = useState<string>("/lovable-uploads/f0c38c7e-3fe8-4f33-ac95-9110cd07815a.png");
@@ -40,12 +40,12 @@ const PosterGenerator = () => {
         backgroundColor: "#ffffff",
         useCORS: true,
       });
-      
+
       const link = document.createElement("a");
       link.download = "deriv-poster.png";
       link.href = canvas.toDataURL();
       link.click();
-      
+
       toast({
         title: "Poster downloaded!",
         description: "Your Deriv poster has been saved.",
@@ -65,7 +65,7 @@ const PosterGenerator = () => {
       <div className="space-y-6">
         <Card className="p-6">
           <h2 className="text-2xl font-bold mb-4">Customize Your Poster</h2>
-          
+
           <div className="space-y-4">
             <div>
               <Label htmlFor="headline">Main Headline</Label>
@@ -173,10 +173,10 @@ const PosterGenerator = () => {
           </div>
 
           {/* White Fade Overlay */}
-          <div 
+          <div
             className="absolute inset-0 z-10"
             style={{
-              background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)"
+              background: "linear-gradient(to bottom, white 0%, white 30%, transparent 40%)"
             }}
           />
 
@@ -209,7 +209,7 @@ const PosterGenerator = () => {
 
           {/* Lower Text */}
           <div className="absolute bottom-4 left-6 right-6 z-20">
-            <p 
+            <p
               className="text-sm font-inter"
               style={{ color: lowerTextColor }}
             >
