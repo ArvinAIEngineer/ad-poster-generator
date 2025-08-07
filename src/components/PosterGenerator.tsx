@@ -172,13 +172,8 @@ const PosterGenerator = () => {
             />
           </div>
 
-          {/* White Fade Overlay */}
-          <div
-            className="absolute inset-0 z-10"
-            style={{
-              background: "linear-gradient(to bottom, white 0%, white 30%, transparent 40%)"
-            }}
-          />
+          {/* White Background */}
+          <div className="absolute inset-0 bg-white z-10" />
 
           {/* Deriv Logo */}
           <div className="absolute top-6 left-6 z-20">
@@ -191,20 +186,27 @@ const PosterGenerator = () => {
           </div>
 
           {/* Main Content */}
-          <div className="absolute top-20 left-6 right-6 z-20">
-            <div className="space-y-2">
-              {/* Headline */}
-              <div className="text-3xl font-bold leading-tight font-inter whitespace-pre-line" style={{ color: headlineColor }}>
-                {headline}
-              </div>
-              
-              {/* Highlight Text */}
-              {highlightText && (
-                <div className="text-3xl font-bold leading-tight font-inter" style={{ color: highlightColor }}>
+          <div className="absolute top-16 left-6 right-6 z-20">
+            <div className="space-y-1">
+              {/* Headline and Highlight on same line */}
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="text-4xl font-bold font-inter whitespace-pre-line" style={{ color: highlightColor }}>
                   {highlightText}
-                </div>
-              )}
+                </span>
+                <span className="text-4xl font-bold font-inter whitespace-pre-line" style={{ color: headlineColor }}>
+                  {headline}
+                </span>
+              </div>
             </div>
+          </div>
+
+          {/* Background Image - positioned in middle/bottom area */}
+          <div className="absolute bottom-20 left-6 right-6 z-15">
+            <img
+              src={backgroundImage}
+              alt="Background"
+              className="w-full h-64 object-contain"
+            />
           </div>
 
           {/* Lower Text */}
